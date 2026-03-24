@@ -487,6 +487,7 @@
   .passions-masonry {
     columns: 3;
     column-gap: 1.5rem;
+    column-fill: balance;
   }
   .passion-card {
     break-inside: avoid;
@@ -495,21 +496,21 @@
     border-radius: 4px;
     padding: 1.6rem;
     border-bottom: 2px solid transparent;
-    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
     opacity: 0;
     transform: translateY(15px);
+    width: 100%;
+    display: inline-block;
   }
   .passion-card.visible { opacity: 1; transform: none; }
   .passion-card:hover { border-bottom-color: var(--orange); box-shadow: 0 8px 24px rgba(0,0,0,0.06); transform: translateY(-2px); }
 
   .passion-icon {
-    width: 36px;
-    height: 36px;
-    object-fit: cover;
-    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 8px;
     margin-bottom: 0.9rem;
     display: block;
-    border: 2px solid var(--orange-pale);
   }
   .passion-name {
     font-family: "Montserrat", sans-serif;
@@ -1022,7 +1023,7 @@
       <img class="passion-icon" src="images/theatre.jpg" alt="Théâtre">
       <div class="passion-name">Théâtre</div>
       <div class="passion-sub">Intelligence émotionnelle · Récit</div>
-      <p class="passion-desc">Pratiqué au collège et lycée comme espace d'expression personnelle. Sur scène, la liberté d'incarner sans être jugée : une école de de confiance en soi.</p>
+      <p class="passion-desc">Pratiqué au collège et lycée comme espace d'expression personnelle. Sur scène, la liberté d'incarner sans être jugée : une école de confiance en soi.</p>
     </div>
     <div class="passion-card">
       <img class="passion-icon" src="images/lecture.jpg" alt="Lecture">
