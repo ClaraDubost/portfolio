@@ -42,7 +42,7 @@
     border-bottom: 1px solid var(--border);
     transition: box-shadow 0.3s;
   }
-  nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+  .hamburger { display: none; }
 
   .nav-logo {
     font-family: "Montserrat", sans-serif;
@@ -199,7 +199,7 @@
   .hero-photo-wrap {
     position: absolute;
     top: 2.5rem;
-    right: 2.5rem;
+    right: 4.5rem;
     width: 220px;
     height: 275px;
     border-radius: 4px;
@@ -503,8 +503,8 @@
   .passion-card:hover { border-bottom-color: var(--orange); box-shadow: 0 8px 24px rgba(0,0,0,0.06); transform: translateY(-2px); }
 
   .passion-icon {
-    width: 56px;
-    height: 56px;
+    width: 36px;
+    height: 36px;
     object-fit: cover;
     border-radius: 50%;
     margin-bottom: 0.9rem;
@@ -642,6 +642,36 @@
     section { padding: 4rem 2rem; }
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      background: rgba(253,250,247,0.98);
+      backdrop-filter: blur(12px);
+      padding: 1.5rem 2rem;
+      gap: 1.2rem;
+      border-bottom: 1px solid var(--border);
+      z-index: 99;
+    }
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--mid);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
     .skills-grid { grid-template-columns: 1fr; }
     .passions-masonry { columns: 2; }
     .sante-content { grid-template-columns: 1fr; gap: 2rem; }
@@ -657,15 +687,18 @@
 <!-- NAV -->
 <nav id="navbar">
   <a href="#accueil" class="nav-logo">Clara Dubost</a>
-  <ul class="nav-links">
-    <li><a href="#travail">Travail</a></li>
-    <li><a href="#education">Éducation</a></li>
-    <li><a href="#competences">Compétences</a></li>
-    <li><a href="#associations">Associations</a></li>
-    <li><a href="#passions">Passions</a></li>
-    <li><a href="#sante">Engagement</a></li>
-    <li><a href="#contact">Contact</a></li>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#travail" onclick="closeMenu()">Travail</a></li>
+    <li><a href="#education" onclick="closeMenu()">Éducation</a></li>
+    <li><a href="#competences" onclick="closeMenu()">Compétences</a></li>
+    <li><a href="#associations" onclick="closeMenu()">Associations</a></li>
+    <li><a href="#passions" onclick="closeMenu()">Passions</a></li>
+    <li><a href="#sante" onclick="closeMenu()">Engagement</a></li>
+    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
   </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -709,7 +742,7 @@
       <div class="timeline-dot"></div>
       <div class="timeline-date">Juin – Sept. 2025</div>
       <div class="timeline-role">Stagiaire Software & Game Dev</div>
-      <div class="timeline-org">Ulster University — Irlande du Nord</div>
+      <div class="timeline-org">Ulster University (Irlande du Nord)</div>
       <p class="timeline-desc">Développement en autonomie totale d'une extension musicale pour un jeu éducatif sous Unity et C#. Travail sur la reconnaissance de notes et l'audio, dans un environnement 100 % anglophone.</p>
     </div>
 
@@ -717,7 +750,7 @@
       <div class="timeline-dot"></div>
       <div class="timeline-date">Oct. 2023 – Sept. 2026</div>
       <div class="timeline-role">Apprentie Data Analyst</div>
-      <div class="timeline-org">Ministère de l'Europe et des Affaires Étrangères — Nantes</div>
+      <div class="timeline-org">Ministère de l'Europe et des Affaires Étrangères (Nantes)</div>
       <p class="timeline-desc">Conception d'un outil de gestion de formation et d'analyse de données. Visualisation via DigDash (JS, HTML/CSS), extractions SQL, et utilisation de Grist pour le suivi d'indicateurs stratégiques.</p>
     </div>
 
@@ -725,14 +758,14 @@
       <div class="timeline-dot"></div>
       <div class="timeline-date">Juillet – Août 2022</div>
       <div class="timeline-role">Animatrice d'Ateliers Robotique</div>
-      <div class="timeline-org">Codeur en Herbe — Nancy</div>
+      <div class="timeline-org">Codeur en Herbe (Nancy)</div>
       <p class="timeline-desc">Organisation et animation d'ateliers de programmation et robotique pour des enfants de 7 à 17 ans (Scratch, mBlock). Vulgarisation de concepts techniques à travers des projets ludiques.</p>
     </div>
 
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-date">Été 2017</div>
-      <div class="timeline-role">Stage — Salon de toilettage canin</div>
+      <div class="timeline-role">Stage : Salon de toilettage canin</div>
       <div class="timeline-org">Tarare</div>
       <p class="timeline-desc">Soin et assistance auprès des chiens, observation et signalement de blessures ou d'inconforts. Une première expérience alliant attention aux détails et amour des animaux.</p>
     </div>
@@ -753,7 +786,7 @@
   <div class="edu-grid">
     <div class="edu-card">
       <div class="edu-year">2023 – 2026</div>
-      <div class="edu-degree">Diplôme d'Ingénieur — Data & IA</div>
+      <div class="edu-degree">Diplôme d'Ingénieur : Data & IA</div>
       <div class="edu-school">Polytech Nantes</div>
       <p class="edu-desc">Machine learning, Big Data, statistiques avancées, visualisation de données, IA générative. Formation en alternance alliant théorie et pratique.</p>
     </div>
@@ -771,15 +804,15 @@
     </div>
     <div class="edu-card">
       <div class="edu-year">2017 – 2020</div>
-      <div class="edu-degree">Baccalauréat Scientifique — Mention TB</div>
-      <div class="edu-school">Lycée Notre Dame de Bel Air — Tarare</div>
+      <div class="edu-degree">Baccalauréat Scientifique (Mention TB)</div>
+      <div class="edu-school">Lycée Notre Dame de Bel Air (Tarare)</div>
       <p class="edu-desc">Spécialité mathématiques. LV1 Anglais, LV2 Allemand, LV3 Chinois (option).</p>
     </div>
     <div class="edu-card">
       <div class="edu-year">Certifications</div>
       <div class="edu-degree">TOEIC 875 · HSK 2 · PSC1</div>
       <div class="edu-school">Anglais courant · Bases en mandarin · Premiers secours</div>
-      <p class="edu-desc">Permis B — véhicules manuels et automatiques.</p>
+      <p class="edu-desc">Permis B (véhicules manuels et automatiques).</p>
     </div>
   </div>
 </section>
@@ -829,10 +862,10 @@
     <div class="skill-group fade-in">
       <h3>Langues</h3>
       <div class="skill-tags">
-        <span class="skill-tag">Français — natif</span>
-        <span class="skill-tag">Anglais — courant</span>
-        <span class="skill-tag">Allemand — A2</span>
-        <span class="skill-tag">Chinois — bases</span>
+        <span class="skill-tag">Français : natif</span>
+        <span class="skill-tag">Anglais : courant</span>
+        <span class="skill-tag">Allemand : A2</span>
+        <span class="skill-tag">Chinois : bases</span>
       </div>
     </div>
     <div class="skill-group fade-in">
@@ -893,7 +926,7 @@
 
   <div class="asso-grid">
     <div class="asso-card">
-      <div class="asso-period">2025 — aujourd'hui</div>
+      <div class="asso-period">2025 à aujourd'hui</div>
       <div class="asso-name">100 % Handinamique</div>
       <div class="asso-role">Secrétaire Générale</div>
       <p class="asso-desc">Coordination administrative, rédaction des documents officiels, lien avec les administrateurs·ices. Accessibilité et rigueur au cœur du fonctionnement associatif.</p>
@@ -930,19 +963,19 @@
     </div>
     <div class="asso-card">
       <div class="asso-period">2022 – 2023</div>
-      <div class="asso-name">Bureau des Arts — Polytech Nancy</div>
+      <div class="asso-name">Bureau des Arts (Polytech Nancy)</div>
       <div class="asso-role">Responsable des Clubs</div>
       <p class="asso-desc">Supervision de 9 clubs artistiques (théâtre, musique, photo, cinéma…). Organisation d'expositions, concerts et événements culturels.</p>
     </div>
     <div class="asso-card">
       <div class="asso-period">2021 – 2022</div>
-      <div class="asso-name">Club Informatique — Polytech Nancy</div>
+      <div class="asso-name">Club Informatique (Polytech Nancy)</div>
       <div class="asso-role">Présidente</div>
       <p class="asso-desc">Encadrement d'une équipe de 7 étudiants, organisation de soutien en programmation et de tournois jeux vidéo, gestion de partenariats (Sopra Steria, Boulanger).</p>
     </div>
     <div class="asso-card">
       <div class="asso-period">2021 – 2023</div>
-      <div class="asso-name">Conseil d'Administration — Polytech Nancy</div>
+      <div class="asso-name">Conseil d'Administration (Polytech Nancy)</div>
       <div class="asso-role">Membre élue</div>
       <p class="asso-desc">Représentation des intérêts étudiants dans les instances stratégiques, participation aux prises de décision institutionnelles.</p>
     </div>
@@ -989,7 +1022,7 @@
       <img class="passion-icon" src="images/theatre.jpg" alt="Théâtre">
       <div class="passion-name">Théâtre</div>
       <div class="passion-sub">Intelligence émotionnelle · Récit</div>
-      <p class="passion-desc">Pratiqué au collège et lycée comme espace d'expression personnelle. Sur scène, la liberté d'incarner sans être jugée — une école de confiance en soi.</p>
+      <p class="passion-desc">Pratiqué au collège et lycée comme espace d'expression personnelle. Sur scène, la liberté d'incarner sans être jugée : une école de de confiance en soi.</p>
     </div>
     <div class="passion-card">
       <img class="passion-icon" src="images/lecture.jpg" alt="Lecture">
@@ -1001,7 +1034,7 @@
       <img class="passion-icon" src="images/photographie.jpg" alt="Photographie">
       <div class="passion-name">Photographie</div>
       <div class="passion-sub">Depuis 2022 · Animaux · Paysages</div>
-      <p class="passion-desc">Née au Bureau des Arts, cette passion pour capturer l'instant s'oriente vers les animaux, les bâtiments et les paysages — préserver la beauté du monde.</p>
+      <p class="passion-desc">Née au Bureau des Arts, cette passion pour capturer l'instant s'oriente vers les animaux, les bâtiments et les paysages : préserver la beauté du monde.</p>
     </div>
     <div class="passion-card">
       <img class="passion-icon" src="images/cuisine.jpg" alt="Cuisine">
@@ -1038,7 +1071,7 @@
   <div class="sante-content">
     <div class="sante-text fade-in">
       <p>
-        La santé mentale est une cause qui me tient profondément à cœur, nourrie par mon propre parcours de vie. J'ai traversé des épreuves qui m'ont forgée et qui ont aiguisé mon sens de l'écoute, de l'empathie et de la résilience.
+        La santé mentale est une cause qui me tient profondément à cœur, nourrie par mon propre parcours de vie. Depuis l'adolescence, je vis avec plusieurs troubles psychiques (un chemin semé d'embûches, qui m'a menée jusqu'à l'hospitalisation psychiatrique). Une expérience difficile, mais qui m'a appris la résilience, la connaissance de soi, et la capacité à avancer même quand tout semble figé.
       </p>
       <p>
         En 2023, j'ai créé un compte Instagram pour <strong>briser les tabous</strong> autour de la santé mentale et partager une parole bienveillante. Mon objectif : montrer que les différences psychiques ne sont pas des défauts — elles s'accompagnent souvent de forces uniques.
@@ -1103,6 +1136,15 @@
 </footer>
 
 <script>
+  function toggleMenu() {
+    document.getElementById('nav-links').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('nav-links').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+
   // Scroll nav shadow
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
