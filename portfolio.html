@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clara Dubost — Ingénieure Data & IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #D9521B;
+    --orange-light: #F07040;
+    --orange-pale: #FDF0EA;
+    --cream: #FDFAF7;
+    --dark: #1A1410;
+    --mid: #4A3F38;
+    --light: #9A8880;
+    --border: #EAE0D8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(253,250,247,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+
+  .nav-logo {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--orange);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    margin-right: 3rem;
+    flex-shrink: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--mid);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.2s;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1.5px;
+    background: var(--orange);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* ── HERO ── */
+  #accueil {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    margin-bottom: 0;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 3rem 7rem 5rem;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1.5rem;
+  }
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 24px; height: 1.5px;
+    background: var(--orange);
+  }
+
+  .hero-name {
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 900;
+    line-height: 1.0;
+    color: var(--dark);
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.02em;
+  }
+  .hero-name span { color: var(--orange); }
+
+  .hero-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+    font-weight: 500;
+    color: var(--light);
+    margin-bottom: 2rem;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-bio {
+    font-size: 0.97rem;
+    line-height: 1.8;
+    color: var(--mid);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    padding: 0.85rem 2rem;
+    background: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 2px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); }
+
+  .btn-secondary {
+    padding: 0.85rem 2rem;
+    background: transparent;
+    color: var(--mid);
+    border: 1.5px solid var(--border);
+    border-radius: 2px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    background: var(--orange-pale);
+  }
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      radial-gradient(ellipse at 80% 20%, rgba(217,82,27,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(217,82,27,0.08) 0%, transparent 50%);
+  }
+
+  .hero-photo-wrap {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    width: 220px;
+    height: 275px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    border: 3px solid white;
+  }
+  .hero-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+.hero-stats {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .stat-pill {
+    background: white;
+    border-radius: 100px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--mid);
+    animation: float 4s ease-in-out infinite;
+  }
+  .stat-pill:nth-child(2) { animation-delay: 1.5s; }
+  .stat-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 6rem 5rem; }
+  
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+  .section-number {
+    font-family: "Montserrat", sans-serif;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(217,82,27,0.22);
+    line-height: 1;
+  }
+  .section-title-group { flex: 1; }
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.4rem;
+  }
+  .section-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 0.6rem;
+  }
+
+  /* ── TRAVAIL ── */
+  #travail { background: white; scroll-margin-top: 80px; }
+  #education, #competences, #associations, #passions, #sante, #contact { scroll-margin-top: 80px; }
+
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 1.5px;
+    background: var(--border);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 0 0 3.5rem 3rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.6s, transform 0.6s;
+  }
+  .timeline-item.visible { opacity: 1; transform: none; }
+
+  .timeline-dot {
+    position: absolute;
+    left: -0.45rem; top: 0.25rem;
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    background: var(--orange);
+    border: 2px solid var(--cream);
+    box-shadow: 0 0 0 3px rgba(217,82,27,0.15);
+  }
+  #travail .timeline-dot { border-color: white; }
+
+  .timeline-date {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.4rem;
+  }
+  .timeline-role {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.15rem;
+  }
+  .timeline-org {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--light);
+    margin-bottom: 0.8rem;
+  }
+  .timeline-desc {
+    font-size: 0.93rem;
+    line-height: 1.75;
+    color: var(--mid);
+    max-width: 600px;
+  }
+
+  /* ── ÉDUCATION ── */
+  #education { background: var(--orange-pale); }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .edu-card {
+    background: white;
+    border-radius: 4px;
+    padding: 2rem;
+    border-left: 3px solid var(--orange);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s, transform 0.6s;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  }
+  .edu-card.visible { opacity: 1; transform: none; }
+  .edu-card:hover { box-shadow: 0 8px 32px rgba(217,82,27,0.1); transform: translateY(-3px); }
+
+  .edu-year {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.5rem;
+  }
+  .edu-degree {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.3rem;
+  }
+  .edu-school {
+    font-size: 0.85rem;
+    color: var(--light);
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+  }
+  .edu-desc {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--mid);
+  }
+
+  /* ── COMPÉTENCES ── */
+  #competences { background: var(--dark); }
+  #competences .section-title { color: white; }
+  #competences .section-label { color: var(--orange-light); }
+  #competences .section-number { color: rgba(255,255,255,0.12); }
+  #sante .section-number { color: rgba(255,255,255,0.10); }
+  #competences .section-line { background: rgba(255,255,255,0.1); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .skill-group h3 {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange-light);
+    margin-bottom: 1.2rem;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .skill-tag {
+    padding: 0.4rem 0.9rem;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 100px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.75);
+    font-weight: 400;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .skill-tag:hover { background: rgba(217,82,27,0.2); border-color: var(--orange); color: white; }
+
+  /* ── ASSOCIATIONS ── */
+  #associations { background: white; }
+
+  .asso-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+  .asso-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.8rem;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s, border-color 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .asso-card.visible { opacity: 1; transform: none; }
+  .asso-card:hover { border-color: var(--orange); box-shadow: 0 6px 24px rgba(217,82,27,0.08); transform: translateY(-3px) !important; }
+
+  .asso-period {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.4rem;
+  }
+  .asso-name {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.15rem;
+  }
+  .asso-role {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--light);
+    margin-bottom: 0.8rem;
+  }
+  .asso-desc {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--mid);
+  }
+
+  /* ── PASSIONS ── */
+  #passions { background: var(--cream); }
+
+  .passions-masonry {
+    columns: 3;
+    column-gap: 1.5rem;
+  }
+  .passion-card {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    background: white;
+    border-radius: 4px;
+    padding: 1.6rem;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  .passion-card.visible { opacity: 1; transform: none; }
+  .passion-card:hover { border-bottom-color: var(--orange); box-shadow: 0 8px 24px rgba(0,0,0,0.06); transform: translateY(-2px); }
+
+  .passion-icon {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 0.9rem;
+    display: block;
+    border: 2px solid var(--orange-pale);
+  }
+  .passion-name {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.15rem;
+  }
+  .passion-sub {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.6rem;
+  }
+  .passion-desc {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--mid);
+  }
+
+  /* ── SANTÉ MENTALE ── */
+  #sante {
+    background: linear-gradient(135deg, #1A1410 0%, #2A1F18 100%);
+    color: white;
+  }
+  #sante .section-title { color: white; }
+  #sante .section-label { color: var(--orange-light); }
+
+  #sante .section-line { background: rgba(255,255,255,0.1); }
+
+  .sante-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .sante-text p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 1.5rem;
+  }
+  .sante-text p strong { color: white; font-weight: 600; }
+  .sante-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .sante-value {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    padding: 1.4rem;
+  }
+  .sante-value h4 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.4rem;
+  }
+  .sante-value p {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: white;
+    text-align: center;
+  }
+  .contact-inner { max-width: 600px; margin: 0 auto; }
+  .contact-inner .section-header { justify-content: center; }
+  .contact-lead {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--mid);
+    margin-bottom: 2.5rem;
+  }
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.5rem;
+    border: 1.5px solid var(--border);
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--mid);
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+  .contact-link:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
+  .contact-link svg { width: 16px; height: 16px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.35);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+  }
+  footer span { color: var(--orange); }
+
+  /* ── ANIMATIONS ENTRÉE ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    #accueil { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { height: 360px; display: block; }
+    .hero-left { padding: 3rem 2rem; }
+    section { padding: 4rem 2rem; }
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .passions-masonry { columns: 2; }
+    .sante-content { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  @media (max-width: 600px) {
+    .passions-masonry { columns: 1; }
+    .hero-stats { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#accueil" class="nav-logo">Clara Dubost</a>
+  <ul class="nav-links">
+    <li><a href="#travail">Travail</a></li>
+    <li><a href="#education">Éducation</a></li>
+    <li><a href="#competences">Compétences</a></li>
+    <li><a href="#associations">Associations</a></li>
+    <li><a href="#passions">Passions</a></li>
+    <li><a href="#sante">Engagement</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="accueil">
+  <div class="hero-left">
+    <div class="hero-tag">Disponible dès octobre 2026</div>
+    <h1 class="hero-name">Clara<br><span>Dubost</span></h1>
+    <p class="hero-title">Ingénieure Data & Intelligence Artificielle</p>
+    <p class="hero-bio">
+      Future diplômée de Polytech Nantes, je donne du sens à la technologie en alliant expertise en analyse de données, engagement associatif et curiosité humaine profonde. Mon parcours est guidé par l'envie de construire des outils utiles, inclusifs et éthiques.
+    </p>
+    <div class="hero-cta">
+      <a href="#travail" class="btn-primary">Voir mon parcours</a>
+      <a href="#contact" class="btn-secondary">Me contacter</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-wrap">
+      <img src="images/photo.jpg" alt="Clara Dubost">
+    </div>
+    <div class="hero-stats">
+      <div class="stat-pill"><span class="dot"></span> Nantes → Grand Est 2026</div>
+      <div class="stat-pill"><span class="dot"></span> TOEIC 875 · Anglais courant</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAVAIL -->
+<section id="travail">
+  <div class="section-header fade-in">
+    <div class="section-number">01</div>
+    <div class="section-title-group">
+      <div class="section-label">Expériences</div>
+      <h2 class="section-title">Parcours professionnel</h2>
+    </div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Juin – Sept. 2025</div>
+      <div class="timeline-role">Stagiaire Software & Game Dev</div>
+      <div class="timeline-org">Ulster University — Irlande du Nord</div>
+      <p class="timeline-desc">Développement en autonomie totale d'une extension musicale pour un jeu éducatif sous Unity et C#. Travail sur la reconnaissance de notes et l'audio, dans un environnement 100 % anglophone.</p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Oct. 2023 – Sept. 2026</div>
+      <div class="timeline-role">Apprentie Data Analyst</div>
+      <div class="timeline-org">Ministère de l'Europe et des Affaires Étrangères — Nantes</div>
+      <p class="timeline-desc">Conception d'un outil de gestion de formation et d'analyse de données. Visualisation via DigDash (JS, HTML/CSS), extractions SQL, et utilisation de Grist pour le suivi d'indicateurs stratégiques.</p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Juillet – Août 2022</div>
+      <div class="timeline-role">Animatrice d'Ateliers Robotique</div>
+      <div class="timeline-org">Codeur en Herbe — Nancy</div>
+      <p class="timeline-desc">Organisation et animation d'ateliers de programmation et robotique pour des enfants de 7 à 17 ans (Scratch, mBlock). Vulgarisation de concepts techniques à travers des projets ludiques.</p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Été 2017</div>
+      <div class="timeline-role">Stage — Salon de toilettage canin</div>
+      <div class="timeline-org">Tarare</div>
+      <p class="timeline-desc">Soin et assistance auprès des chiens, observation et signalement de blessures ou d'inconforts. Une première expérience alliant attention aux détails et amour des animaux.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ÉDUCATION -->
+<section id="education">
+  <div class="section-header fade-in">
+    <div class="section-number">02</div>
+    <div class="section-title-group">
+      <div class="section-label">Formation</div>
+      <h2 class="section-title">Éducation</h2>
+    </div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-year">2023 – 2026</div>
+      <div class="edu-degree">Diplôme d'Ingénieur — Data & IA</div>
+      <div class="edu-school">Polytech Nantes</div>
+      <p class="edu-desc">Machine learning, Big Data, statistiques avancées, visualisation de données, IA générative. Formation en alternance alliant théorie et pratique.</p>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2022 – 2023</div>
+      <div class="edu-degree">Spécialisation IA2R</div>
+      <div class="edu-school">Polytech Nancy</div>
+      <p class="edu-desc">Informatique, Automatique, Robotique et Réseaux. Une année déterminante pour affiner mon orientation vers la Data et l'IA.</p>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2020 – 2022</div>
+      <div class="edu-degree">Cycle Préparatoire Intégré (PeIP)</div>
+      <div class="edu-school">Polytech Nancy</div>
+      <p class="edu-desc">Maths, physique, chimie, informatique, thermodynamique. Fondations solides en raisonnement analytique et résolution de problèmes.</p>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2017 – 2020</div>
+      <div class="edu-degree">Baccalauréat Scientifique — Mention TB</div>
+      <div class="edu-school">Lycée Notre Dame de Bel Air — Tarare</div>
+      <p class="edu-desc">Spécialité mathématiques. LV1 Anglais, LV2 Allemand, LV3 Chinois (option).</p>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">Certifications</div>
+      <div class="edu-degree">TOEIC 875 · HSK 2 · PSC1</div>
+      <div class="edu-school">Anglais courant · Bases en mandarin · Premiers secours</div>
+      <p class="edu-desc">Permis B — véhicules manuels et automatiques.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section id="competences">
+  <div class="section-header fade-in">
+    <div class="section-number">03</div>
+    <div class="section-title-group">
+      <div class="section-label">Stack & Outils</div>
+      <h2 class="section-title">Compétences</h2>
+    </div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-group fade-in">
+      <h3>Langages</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">C#</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">HTML / CSS</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <h3>Data & Visualisation</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">PowerBI</span>
+        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">DigDash</span>
+        <span class="skill-tag">Grist</span>
+        <span class="skill-tag">PostgreSQL</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <h3>Outils & Environnements</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Unity</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Linux / Ubuntu</span>
+        <span class="skill-tag">Google Workspace</span>
+        <span class="skill-tag">Notion</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <h3>Langues</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Français — natif</span>
+        <span class="skill-tag">Anglais — courant</span>
+        <span class="skill-tag">Allemand — A2</span>
+        <span class="skill-tag">Chinois — bases</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <h3>Machine Learning & IA</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Scikit-learn</span>
+        <span class="skill-tag">Pandas / NumPy</span>
+        <span class="skill-tag">Modèles prédictifs</span>
+        <span class="skill-tag">IA générative</span>
+        <span class="skill-tag">Traitement de données</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <h3>Bases de données</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">Oracle</span>
+        <span class="skill-tag">DuckDB</span>
+        <span class="skill-tag">Neo4j</span>
+        <span class="skill-tag">SQL avancé</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <h3>Soft skills</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Leadership & gestion d'équipe</span>
+        <span class="skill-tag">Gestion de projet</span>
+        <span class="skill-tag">Rigueur & minutie</span>
+        <span class="skill-tag">Adaptabilité</span>
+        <span class="skill-tag">Communication institutionnelle</span>
+        <span class="skill-tag">Éthique & inclusion</span>
+        <span class="skill-tag">Prise de parole publique</span>
+        <span class="skill-tag">Gestion de budget</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <h3>Domaines d'intérêt</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Santé mentale & données</span>
+        <span class="skill-tag">Accessibilité numérique</span>
+        <span class="skill-tag">Bientraitance animale</span>
+        <span class="skill-tag">IA éthique</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ASSOCIATIONS -->
+<section id="associations">
+  <div class="section-header fade-in">
+    <div class="section-number">04</div>
+    <div class="section-title-group">
+      <div class="section-label">Engagement</div>
+      <h2 class="section-title">Vie associative</h2>
+    </div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="asso-grid">
+    <div class="asso-card">
+      <div class="asso-period">2025 — aujourd'hui</div>
+      <div class="asso-name">100 % Handinamique</div>
+      <div class="asso-role">Secrétaire Générale</div>
+      <p class="asso-desc">Coordination administrative, rédaction des documents officiels, lien avec les administrateurs·ices. Accessibilité et rigueur au cœur du fonctionnement associatif.</p>
+    </div>
+    <div class="asso-card">
+      <div class="asso-period">2024</div>
+      <div class="asso-name">100 % Handinamique</div>
+      <div class="asso-role">Administratrice</div>
+      <p class="asso-desc">Promotion de l'inclusion des jeunes en situation de handicap dans les milieux académiques et professionnels. Campagnes de sensibilisation et travail inter-associatif.</p>
+    </div>
+    <div class="asso-card">
+      <div class="asso-period">2024 – 2025</div>
+      <div class="asso-name">Activ'ITII</div>
+      <div class="asso-role">Vice-Présidente</div>
+      <p class="asso-desc">Organisation d'événements d'intégration pour les apprentis ingénieurs. Gestion logistique et création d'environnements inclusifs.</p>
+    </div>
+    <div class="asso-card">
+      <div class="asso-period">2023 – 2025</div>
+      <div class="asso-name">Promotion IDIA2026</div>
+      <div class="asso-role">Déléguée de promotion</div>
+      <p class="asso-desc">Interface entre les étudiants et l'administration, participation aux conseils d'administration et représentation lors des assemblées générales.</p>
+    </div>
+    <div class="asso-card">
+      <div class="asso-period">2023 – 2024</div>
+      <div class="asso-name">Bureau National des Élèves Ingénieurs</div>
+      <div class="asso-role">Responsable Qualité</div>
+      <p class="asso-desc">Amélioration continue, tableaux de bord de performance et optimisation des processus organisationnels pour 185 000 élèves ingénieurs.</p>
+    </div>
+    <div class="asso-card">
+      <div class="asso-period">2022 – 2023</div>
+      <div class="asso-name">Bureau National des Élèves Ingénieurs</div>
+      <div class="asso-role">Secrétaire Générale</div>
+      <p class="asso-desc">Coordination nationale des associations étudiantes, gestion de la documentation et organisation des assemblées générales. Représentation de 185 000 élèves.</p>
+    </div>
+    <div class="asso-card">
+      <div class="asso-period">2022 – 2023</div>
+      <div class="asso-name">Bureau des Arts — Polytech Nancy</div>
+      <div class="asso-role">Responsable des Clubs</div>
+      <p class="asso-desc">Supervision de 9 clubs artistiques (théâtre, musique, photo, cinéma…). Organisation d'expositions, concerts et événements culturels.</p>
+    </div>
+    <div class="asso-card">
+      <div class="asso-period">2021 – 2022</div>
+      <div class="asso-name">Club Informatique — Polytech Nancy</div>
+      <div class="asso-role">Présidente</div>
+      <p class="asso-desc">Encadrement d'une équipe de 7 étudiants, organisation de soutien en programmation et de tournois jeux vidéo, gestion de partenariats (Sopra Steria, Boulanger).</p>
+    </div>
+    <div class="asso-card">
+      <div class="asso-period">2021 – 2023</div>
+      <div class="asso-name">Conseil d'Administration — Polytech Nancy</div>
+      <div class="asso-role">Membre élue</div>
+      <p class="asso-desc">Représentation des intérêts étudiants dans les instances stratégiques, participation aux prises de décision institutionnelles.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PASSIONS -->
+<section id="passions">
+  <div class="section-header fade-in">
+    <div class="section-number">05</div>
+    <div class="section-title-group">
+      <div class="section-label">Au-delà du travail</div>
+      <h2 class="section-title">Passions & loisirs</h2>
+    </div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="passions-masonry">
+    <div class="passion-card">
+      <img class="passion-icon" src="images/canin.jpg" alt="Comportement canin">
+      <div class="passion-name">Comportement canin</div>
+      <div class="passion-sub">Empathie · Communication non verbale</div>
+      <p class="passion-desc">Passionnée par les chiens depuis l'enfance avec Savannah, ma dalmatienne. Je me prépare à passer la certification ACACED et explore la photographie canine comme moyen d'expression créative.</p>
+    </div>
+    <div class="passion-card">
+      <img class="passion-icon" src="images/piano.jpg" alt="Piano et guitare">
+      <div class="passion-name">Piano & Guitare</div>
+      <div class="passion-sub">7 ans de pratique · Apprentissage continu</div>
+      <p class="passion-desc">Piano classique (Beethoven, Mozart, Einaudi), guitare pour créer du lien. La musique comme fil conducteur, aujourd'hui aussi au service du chant.</p>
+    </div>
+    <div class="passion-card">
+      <img class="passion-icon" src="images/jeux.jpg" alt="Jeux vidéo">
+      <div class="passion-name">Jeux vidéo</div>
+      <div class="passion-sub">Stratégie · Exploration · Créativité</div>
+      <p class="passion-desc">League of Legends, Dofus, Hollow Knight, Animal Crossing, Pokémon... Des univers variés qui ont nourri ma curiosité et ma pensée stratégique dès l'adolescence.</p>
+    </div>
+    <div class="passion-card">
+      <img class="passion-icon" src="images/voyage.jpg" alt="Voyages">
+      <div class="passion-name">Voyages</div>
+      <div class="passion-sub">Ouverture d'esprit · Adaptabilité</div>
+      <p class="passion-desc">Irlande du Nord, Sénégal (voyage humanitaire), Allemagne, Suède, Espagne, Portugal, Italie. Découvrir le monde pour mieux comprendre les autres.</p>
+    </div>
+    <div class="passion-card">
+      <img class="passion-icon" src="images/theatre.jpg" alt="Théâtre">
+      <div class="passion-name">Théâtre</div>
+      <div class="passion-sub">Intelligence émotionnelle · Récit</div>
+      <p class="passion-desc">Pratiqué au collège et lycée comme espace d'expression personnelle. Sur scène, la liberté d'incarner sans être jugée — une école de confiance en soi.</p>
+    </div>
+    <div class="passion-card">
+      <img class="passion-icon" src="images/lecture.jpg" alt="Lecture">
+      <div class="passion-name">Lecture</div>
+      <div class="passion-sub">Créativité · Refuge · Imagination</div>
+      <p class="passion-desc">Compagne d'enfance et d'adolescence, la lecture reste un espace de rêve et d'exploration au-delà du réel.</p>
+    </div>
+    <div class="passion-card">
+      <img class="passion-icon" src="images/photographie.jpg" alt="Photographie">
+      <div class="passion-name">Photographie</div>
+      <div class="passion-sub">Depuis 2022 · Animaux · Paysages</div>
+      <p class="passion-desc">Née au Bureau des Arts, cette passion pour capturer l'instant s'oriente vers les animaux, les bâtiments et les paysages — préserver la beauté du monde.</p>
+    </div>
+    <div class="passion-card">
+      <img class="passion-icon" src="images/cuisine.jpg" alt="Cuisine">
+      <div class="passion-name">Cuisine</div>
+      <div class="passion-sub">Créativité · Autonomie · Bien-être</div>
+      <p class="passion-desc">De la pâtisserie aux plats salés, créer quelque chose de A à Z en sachant exactement ce qu'il contient. Thérapeutique et valorisant.</p>
+    </div>
+    <div class="passion-card">
+      <img class="passion-icon" src="images/course.jpg" alt="Course à pied">
+      <div class="passion-name">Course à pied</div>
+      <div class="passion-sub">Objectif 10km · Résilience</div>
+      <p class="passion-desc">Un défi personnel profond : on m'avait dit enfant que je ne pourrais jamais courir. Aujourd'hui je m'entraîne pour prouver que rien n'est impossible.</p>
+    </div>
+    <div class="passion-card">
+      <img class="passion-icon" src="images/peinture.jpg" alt="Peinture">
+      <div class="passion-name">Peinture & Dessin digital</div>
+      <div class="passion-sub">Abstrait · Couleurs · Émotions</div>
+      <p class="passion-desc">Formes, nuances, couleurs abstraites. Un moyen de se détendre, jouer avec la créativité et apporter de la beauté au monde.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SANTÉ MENTALE -->
+<section id="sante">
+  <div class="section-header fade-in">
+    <div class="section-number">06</div>
+    <div class="section-title-group">
+      <div class="section-label">Engagement personnel</div>
+      <h2 class="section-title">Santé mentale & inclusion</h2>
+    </div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="sante-content">
+    <div class="sante-text fade-in">
+      <p>
+        La santé mentale est une cause qui me tient profondément à cœur, nourrie par mon propre parcours de vie. J'ai traversé des épreuves qui m'ont forgée et qui ont aiguisé mon sens de l'écoute, de l'empathie et de la résilience.
+      </p>
+      <p>
+        En 2023, j'ai créé un compte Instagram pour <strong>briser les tabous</strong> autour de la santé mentale et partager une parole bienveillante. Mon objectif : montrer que les différences psychiques ne sont pas des défauts — elles s'accompagnent souvent de forces uniques.
+      </p>
+      <p>
+        C'est aussi ce qui guide mon intérêt pour des projets data orientés <strong>santé mentale et bientraitance</strong> — là où la technologie peut vraiment servir l'humain.
+      </p>
+    </div>
+    <div class="sante-values fade-in">
+      <div class="sante-value">
+        <h4>Empathie</h4>
+        <p>Comprendre les difficultés des autres, sans jugement.</p>
+      </div>
+      <div class="sante-value">
+        <h4>Résilience</h4>
+        <p>Surmonter les obstacles et s'adapter avec force.</p>
+      </div>
+      <div class="sante-value">
+        <h4>Connaissance de soi</h4>
+        <p>Identifier ses émotions et ses besoins pour mieux avancer.</p>
+      </div>
+      <div class="sante-value">
+        <h4>Inclusion</h4>
+        <p>Construire des espaces où chacun·e a sa place.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-header fade-in" style="justify-content:center">
+      <div class="section-title-group" style="text-align:center">
+        <div class="section-label">Parlons-nous</div>
+        <h2 class="section-title">Contact</h2>
+      </div>
+    </div>
+    <p class="contact-lead fade-in">
+      Je recherche une opportunité en CDI à partir d'octobre 2026 dans un environnement où l'humain est une priorité. N'hésitez pas à me contacter pour échanger !
+    </p>
+    <div class="contact-links fade-in">
+      <a href="mailto:dubost.clara69@gmail.com" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        dubost.clara69@gmail.com
+      </a>
+      <a href="tel:+33781873644" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.84 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 2.8h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.3a16 16 0 0 0 5.37 5.37l1.57-1.57a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.92 16.92z"/></svg>
+        +33 7 81 87 36 44
+      </a>
+      <a href="https://linkedin.com/in/clara-dubost" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        clara-dubost
+      </a>
+    </div>
+    <p class="fade-in" style="font-size:0.82rem; color:var(--light);">📍 Nantes — disponible pour relocalisation Grand Est / Nancy</p>
+  </div>
+</section>
+
+<footer>
+  © 2025 <span>Clara Dubost</span> · Ingénieure Data & IA · Tous droits réservés
+</footer>
+
+<script>
+  // Scroll nav shadow
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Intersection observer for animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, entry.target.dataset.delay || 0);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  // Observe all animatable elements
+  document.querySelectorAll('.fade-in, .edu-card, .asso-card, .passion-card, .timeline-item').forEach((el, i) => {
+    el.dataset.delay = (i % 4) * 80;
+    observer.observe(el);
+  });
+
+  // Smooth active nav link
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--orange)' : '';
+    });
+  });
+</script>
+</body>
+</html>
