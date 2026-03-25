@@ -214,7 +214,7 @@
     height: 100%;
     display: block;
     object-fit: cover;
-    object-position: 60% 30%;
+    object-position: 20% 20%;
   }
 
 .hero-stats {
@@ -582,7 +582,49 @@
     color: rgba(255,255,255,0.5);
   }
 
-  /* ── CONTACT ── */
+  /* ── PROJETS ── */
+  .projet-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 1.8rem;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .projet-card:hover { border-color: var(--orange); background: rgba(217,82,27,0.08); }
+  .projet-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+  .projet-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--orange-light);
+    background: rgba(217,82,27,0.15);
+    border: 1px solid rgba(217,82,27,0.3);
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+  }
+  .projet-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.7rem;
+  }
+  .projet-desc {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 1.2rem;
+  }
+  .projet-link {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--orange-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .projet-link:hover { color: white; }
   #contact {
     background: white;
     text-align: center;
@@ -723,7 +765,7 @@
       <img src="images/photo.jpg" alt="Clara Dubost">
     </div>
     <div class="hero-stats">
-      <div class="stat-pill"><span class="dot"></span> Nantes → Grand Est 2026</div>
+      <div class="stat-pill"><span class="dot"></span> Ouverte à l'international 🌍</div>
       <div class="stat-pill"><span class="dot"></span> TOEIC 875 · Anglais courant</div>
     </div>
   </div>
@@ -746,7 +788,7 @@
       <div class="timeline-date">Juin – Sept. 2025</div>
       <div class="timeline-role">Stagiaire Software & Game Dev</div>
       <div class="timeline-org">Ulster University (Irlande du Nord)</div>
-      <p class="timeline-desc">Développement en autonomie totale d'une extension musicale pour un jeu éducatif sous Unity et C#. Travail sur la reconnaissance de notes et l'audio, dans un environnement 100 % anglophone.</p>
+      <p class="timeline-desc">Développement en autonomie totale d'une extension musicale pour un jeu éducatif sous Unity et C#.<br>Travail sur la reconnaissance de notes et l'audio, dans un environnement 100 % anglophone.</p>
     </div>
 
     <div class="timeline-item">
@@ -754,7 +796,7 @@
       <div class="timeline-date">Oct. 2023 – Sept. 2026</div>
       <div class="timeline-role">Apprentie Data Analyst</div>
       <div class="timeline-org">Ministère de l'Europe et des Affaires Étrangères (Nantes)</div>
-      <p class="timeline-desc">Conception d'un outil de gestion de formation et d'analyse de données. Visualisation via DigDash (JS, HTML/CSS), extractions SQL, et utilisation de Grist pour le suivi d'indicateurs stratégiques.</p>
+      <p class="timeline-desc">Conception d'un outil de gestion de formation et d'analyse de données.<br>Visualisation via DigDash (JS, HTML/CSS), extractions SQL, et utilisation de Grist pour le suivi d'indicateurs stratégiques.</p>
     </div>
 
     <div class="timeline-item">
@@ -762,7 +804,7 @@
       <div class="timeline-date">Juillet – Août 2022</div>
       <div class="timeline-role">Animatrice d'Ateliers Robotique</div>
       <div class="timeline-org">Codeur en Herbe (Nancy)</div>
-      <p class="timeline-desc">Organisation et animation d'ateliers de programmation et robotique pour des enfants de 7 à 17 ans (Scratch, mBlock). Vulgarisation de concepts techniques à travers des projets ludiques.</p>
+      <p class="timeline-desc">Organisation et animation d'ateliers de programmation et robotique pour des enfants de 7 à 17 ans (Scratch, mBlock).<br>Vulgarisation de concepts techniques à travers des projets ludiques.</p>
     </div>
 
     <div class="timeline-item">
@@ -770,7 +812,7 @@
       <div class="timeline-date">Été 2017</div>
       <div class="timeline-role">Stage : Salon de toilettage canin</div>
       <div class="timeline-org">Tarare</div>
-      <p class="timeline-desc">Soin et assistance auprès des chiens, observation et signalement de blessures ou d'inconforts. Une première expérience alliant attention aux détails et amour des animaux.</p>
+      <p class="timeline-desc">Soin et assistance auprès des chiens, observation et signalement de blessures ou d'inconforts.<br>Une première expérience alliant attention aux détails et amour des animaux.</p>
     </div>
   </div>
 </section>
@@ -804,6 +846,12 @@
       <div class="edu-degree">Cycle Préparatoire Intégré (PeIP)</div>
       <div class="edu-school">Polytech Nancy</div>
       <p class="edu-desc">Maths, physique, chimie, informatique, thermodynamique. Fondations solides en raisonnement analytique et résolution de problèmes.</p>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2014 – 2017</div>
+      <div class="edu-degree">Collège Saint André</div>
+      <div class="edu-school">Tarare</div>
+      <p class="edu-desc">LV1 Anglais, LV2 Allemand, option Latin.</p>
     </div>
     <div class="edu-card">
       <div class="edu-year">2017 – 2020</div>
@@ -982,6 +1030,12 @@
       <div class="asso-role">Membre élue</div>
       <p class="asso-desc">Représentation des intérêts étudiants dans les instances stratégiques, participation aux prises de décision institutionnelles.</p>
     </div>
+    <div class="asso-card">
+      <div class="asso-period">2012 – 2014</div>
+      <div class="asso-name">Conseil Municipal des Jeunes</div>
+      <div class="asso-role">Conseillère municipale</div>
+      <p class="asso-desc">Représentation des jeunes auprès de la mairie de Tarare, participation aux décisions locales et aux projets citoyens. Une première expérience d'engagement public dès le collège.</p>
+    </div>
   </div>
 </section>
 
@@ -1019,7 +1073,7 @@
       <img class="passion-icon" src="images/voyage.jpg" alt="Voyages">
       <div class="passion-name">Voyages</div>
       <div class="passion-sub">Ouverture d'esprit · Adaptabilité</div>
-      <p class="passion-desc">Irlande du Nord, Sénégal (voyage humanitaire), Allemagne, Suède, Espagne, Portugal, Italie. Découvrir le monde pour mieux comprendre les autres.</p>
+      <p class="passion-desc">Irlande du Nord, Sénégal (voyage humanitaire, 2017), Allemagne, Suède, Espagne, Portugal, Italie. Deux pèlerinages à Lourdes (2016 et 2018). Découvrir le monde pour mieux comprendre les autres.</p>
     </div>
     <div class="passion-card">
       <img class="passion-icon" src="images/theatre.jpg" alt="Théâtre">
@@ -1060,47 +1114,61 @@
   </div>
 </section>
 
-<!-- SANTÉ MENTALE -->
-<section id="sante">
+<!-- PROJETS -->
+<section id="sante" style="background: linear-gradient(135deg, #1A1410 0%, #2A1F18 100%); color: white; padding: 6rem 5rem;">
   <div class="section-header fade-in">
-    <div class="section-number">06</div>
+    <div class="section-number" style="color:rgba(255,255,255,0.12)">06</div>
     <div class="section-title-group">
-      <div class="section-label">Engagement personnel</div>
-      <h2 class="section-title">Santé mentale & inclusion</h2>
+      <div class="section-label" style="color:var(--orange-light)">Réalisations académiques</div>
+      <h2 class="section-title" style="color:white">Projets</h2>
     </div>
-    <div class="section-line"></div>
+    <div class="section-line" style="background:rgba(255,255,255,0.1)"></div>
   </div>
 
-  <div class="sante-content">
-    <div class="sante-text fade-in">
-      <p>
-        La santé mentale est une cause qui me tient profondément à cœur, nourrie par mon propre parcours de vie. Depuis l'adolescence, je vis avec plusieurs troubles psychiques (un chemin semé d'embûches, qui m'a menée jusqu'à l'hospitalisation psychiatrique). Une expérience difficile, mais qui m'a appris la résilience, la connaissance de soi, et la capacité à avancer même quand tout semble figé.
-      </p>
-      <p>
-        En 2023, j'ai créé un compte Instagram pour <strong>briser les tabous</strong> autour de la santé mentale et partager une parole bienveillante. Mon objectif : montrer que les différences psychiques ne sont pas des défauts — elles s'accompagnent souvent de forces uniques.
-      </p>
-      <p>
-        C'est aussi ce qui guide mon intérêt pour des projets data orientés <strong>santé mentale et bientraitance</strong> — là où la technologie peut vraiment servir l'humain.
-      </p>
+  <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap:1.5rem;">
+
+    <div class="projet-card">
+      <div class="projet-tags"><span class="projet-tag">dbt</span><span class="projet-tag">DuckDB</span><span class="projet-tag">SQL</span></div>
+      <div class="projet-title">Modern Data Stack — éCO2mix</div>
+      <p class="projet-desc">Pipeline complet de transformation de données énergétiques régionales (2013-2023). Modèles dbt, window functions avancées, schéma en étoile et cube OLAP.</p>
+      <a href="https://github.com/claradubost/tp-dbt-duckdb" target="_blank" class="projet-link">Voir le repo →</a>
     </div>
-    <div class="sante-values fade-in">
-      <div class="sante-value">
-        <h4>Empathie</h4>
-        <p>Comprendre les difficultés des autres, sans jugement.</p>
-      </div>
-      <div class="sante-value">
-        <h4>Résilience</h4>
-        <p>Surmonter les obstacles et s'adapter avec force.</p>
-      </div>
-      <div class="sante-value">
-        <h4>Connaissance de soi</h4>
-        <p>Identifier ses émotions et ses besoins pour mieux avancer.</p>
-      </div>
-      <div class="sante-value">
-        <h4>Inclusion</h4>
-        <p>Construire des espaces où chacun·e a sa place.</p>
-      </div>
+
+    <div class="projet-card">
+      <div class="projet-tags"><span class="projet-tag">Terraform</span><span class="projet-tag">Snowflake</span><span class="projet-tag">IaC</span></div>
+      <div class="projet-title">Infrastructure as Code</div>
+      <p class="projet-desc">Déploiement d'une infrastructure Snowflake multi-environnements via Terraform. Modules, workspaces, CI/CD GitLab et gestion des secrets.</p>
+      <a href="https://github.com/claradubost/tp-terraform-snowflake" target="_blank" class="projet-link">Voir le repo →</a>
     </div>
+
+    <div class="projet-card">
+      <div class="projet-tags"><span class="projet-tag">dbt</span><span class="projet-tag">Snowflake</span><span class="projet-tag">Pipeline</span></div>
+      <div class="projet-title">Pipeline de données — Funnel recrutement</div>
+      <p class="projet-desc">Pipeline de données incrémental sur un funnel de missions freelance. Tests qualité, snapshots SCD, matérialisation incrémentale et CI/CD.</p>
+      <a href="https://github.com/claradubost/tp-dbt-snowflake" target="_blank" class="projet-link">Voir le repo →</a>
+    </div>
+
+    <div class="projet-card">
+      <div class="projet-tags"><span class="projet-tag">Talend</span><span class="projet-tag">Qualité</span><span class="projet-tag">PostgreSQL</span></div>
+      <div class="projet-title">Qualité de données — éCO2mix</div>
+      <p class="projet-desc">Analyse de la qualité des données énergétiques régionales avec Talend Open Studio. Profiling, règles métier, dépendances fonctionnelles et croisement de sources.</p>
+      <a href="https://github.com/claradubost/tp-qualite-donnees" target="_blank" class="projet-link">Voir le repo →</a>
+    </div>
+
+    <div class="projet-card">
+      <div class="projet-tags"><span class="projet-tag">ELECTRE</span><span class="projet-tag">TOPSIS</span><span class="projet-tag">Python</span></div>
+      <div class="projet-title">Analyse multicritère — AMCD</div>
+      <p class="projet-desc">Aide à la décision multicritère avec les méthodes ELECTRE I & II, TOPSIS et pondération. Étude de robustesse et méta-analyse comparative.</p>
+      <a href="https://github.com/claradubost/tp-amcd" target="_blank" class="projet-link">Voir le repo →</a>
+    </div>
+
+    <div class="projet-card">
+      <div class="projet-tags"><span class="projet-tag">Tableau</span><span class="projet-tag">Datavis</span><span class="projet-tag">Narration</span></div>
+      <div class="projet-title">Analyse & narration de données — Tableau</div>
+      <p class="projet-desc">Exploration et visualisation d'un jeu de données avec Tableau Public. Conception d'une narration data-driven publiée et accessible en ligne.</p>
+      <a href="https://github.com/claradubost/tp-tableau" target="_blank" class="projet-link">Voir le repo →</a>
+    </div>
+
   </div>
 </section>
 
@@ -1130,7 +1198,7 @@
         clara-dubost
       </a>
     </div>
-    <p class="fade-in" style="font-size:0.82rem; color:var(--light);">📍 Nantes — disponible pour relocalisation Grand Est / Nancy</p>
+    <p class="fade-in" style="font-size:0.82rem; color:var(--light);">📍 Nantes — ouverte à la mobilité en France (Grand Est) et à l'international : Europe (Belgique, Allemagne, Luxembourg, Suisse, Pays-Bas, pays nordiques, Autriche, Italie, pays baltes…) et hors-Europe (Canada, Islande…)</p>
   </div>
 </section>
 
