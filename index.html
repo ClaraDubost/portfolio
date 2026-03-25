@@ -487,21 +487,18 @@
   #passions { background: var(--cream); }
 
   .passions-masonry {
-    columns: 3;
-    column-gap: 1.5rem;
-    column-fill: balance;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
   }
   .passion-card {
-    break-inside: avoid;
-    margin-bottom: 1.5rem;
     background: white;
     border-radius: 4px;
     padding: 1.6rem;
     border-bottom: 2px solid transparent;
     opacity: 0;
     transform: translateY(15px);
-    width: 100%;
-    display: inline-block;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
   }
   .passion-card.visible { opacity: 1; transform: none; }
   .passion-card:hover { border-bottom-color: var(--orange); box-shadow: 0 8px 24px rgba(0,0,0,0.06); transform: translateY(-2px); }
@@ -718,11 +715,11 @@
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
     .skills-grid { grid-template-columns: 1fr; }
-    .passions-masonry { columns: 2; }
+    .passions-masonry { grid-template-columns: repeat(2, 1fr); }
     .sante-content { grid-template-columns: 1fr; gap: 2rem; }
   }
   @media (max-width: 600px) {
-    .passions-masonry { columns: 1; }
+    .passions-masonry { grid-template-columns: 1fr; }
     .hero-stats { display: none; }
   }
 </style>
